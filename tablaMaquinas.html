@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <script src="https:\\maps.googleapis.com/maps/api/js?key=AIzaSyDE4JMU5gBPIEAjmFbTMX_qWyc0louiOk4&callback=initMap" async defer></script>
+    
+    <script>
+
+        function irAtras() {
+            location.href = "index.html";
+        } 
+
+        function bringMe(coordenadax, coordenaday) {
+            console.log("paso por aqui");
+
+            var mapOptions = {
+                zoom: 16,
+                center: { lat: 38.3837805, lng: -0.5131867 }
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            var pos = new google.maps.LatLng(coordenadax, coordenaday);
+
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "culo"
+            });
+
+            document.getElementById("map").classList.add("mapa-visible");
+           
+        }
+
+
+        function consultaProductos() {
+            var datos;
+
+            $.ajax({
+
+                url: 'https://dev.datos.ua.es/uapi/SVZ4YSbTzaucFUc6HvUy/datasets/39/data',
+                type: 'GET',
+                dataType: "jsonp",
+                success: function (data) {
+
+                    var productos; 
+
+
+                    
+                },
+                error: function (jqXHR, textStatus, error) {
+
+                    alert("error:" + jqXHR.responseText);
+                }
+            });
+        
+        }
+
+
+
+        function muestraTablaMaquinas() {
+
+            var datos;
+
+            $.ajax({
+
+                url: 'https://dev.datos.ua.es/uapi/SVZ4YSbTzaucFUc6HvUy/datasets/11/data',
+                type: 'GET',
+                dataType: "jsonp",
+                success: function (data) {
+
+
+                    var html = '';
+                    var coordenadas;
+
+                    $.each(data, function (i, item) {
+
+                        coordenadas = item.bbox.split(",");
+
+                        //lat: 38.3837805, lng: -0.5131867
+
+                        html += '<tr>'
+                        html += '<td>' + item.nombre + '</td>'
+                        html += '<td><button onclick = "bringMe(' + coordenadas[1] + ',' + coordenadas[0] + '); "> ' + "Llévame allí" + '</button ></td > '
+                        html += '</tr>';
+                    });
+
+                    $("#tablaEdificios tbody").html(html);
+
+                },
+                error: function (jqXHR, textStatus, error) {
+
+                    alert("error:" + jqXHR.responseText);
+                }
+            });
+        }
+
+
+    </script>
+    </head>
+<body onload="muestraTablaMaquinas()">
+
+    <header>
+        <h1 class="ribbon">
+            <strong class="ribbon-content">Máquinas</strong>
+        </h1>
+    </header>
+
+    <table id="tablaEdificios" class="centrado">
+        <thead>
+            <tr>
+                <td>Edificio</td>
+                <td>Botón</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div id="map"></div>
+
+    <button onclick="irAtras()">Atrás</button>
+
+</body>
+
+</html>
+
+
+

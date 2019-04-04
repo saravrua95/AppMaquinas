@@ -1,0 +1,237 @@
+
+
+
+
+/*
+    COLOR PALETTE
+    azul: #1A8B9D
+    negro: #000
+    verde: #B2D430
+    blanco: #EAEAEA
+*/
+
+
+html, body {
+    background-color: #EAEAEA;
+}
+
+
+
+.centrado {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/*BOTONES*/
+button {
+    font-size: 1.5em;
+    color: #000;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #B2D430;
+    border-bottom: 2px solid #000;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px #000;
+    box-shadow: inset 0 -2px #000;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 2%;
+    border: none;
+}
+
+/*MAPA*/
+
+.mapa-visible {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+
+
+/*RIBBON*/
+
+
+/*
+    COLOR PALETTE
+    Muy Oscuro:  #015668
+    Oscuro: #06648C
+    Claro: #0F81C7
+    Muy Claro: #0DE2EA
+*/
+
+header {
+    position: relative;
+    z-index: 1;
+}
+
+
+.ribbon {
+    font-family: 'Pacifico';
+    font-size: 2em !important;
+    width: 50%;
+    position: relative;
+    background: #1A8B9D;
+    color: #000;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    padding: 0.15em 0.5em;
+    margin: 0.5em auto 1.5em;
+}
+
+.ribbon:before, .ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1em solid #047787;
+    z-index: -1;
+    border-right-width: 1.5em;
+    border-left-width: 1.5em;
+}
+
+.ribbon:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+.ribbon:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #025D6A transparent transparent transparent;
+    bottom: -1em;
+}
+
+.ribbon .ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+.ribbon .ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
+
+
+
+/*CREDITOS*/
+
+.creditos {
+    text-align: center;
+    color: #03370b;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.creditos h1 {
+    font-size: 5em;
+    font-family: 'Pacifico';
+}
+
+.creditos h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+.creditos p {
+    font-size: 1.5em;
+}
+
+.creditos a {
+    font-size: 1.5em;
+    color: #1A8B9D;
+}
+
+
+
+/*TITULO*/
+
+#titulo h2 {
+
+    display: inline;
+    font-family: 'Pacifico';
+    font-size: 1.5em;
+
+}
+
+
+
+/*
+    COLOR PALETTE
+    azul: #08D9D6
+    negro: #000
+    verde: #B2D430
+    blanco: #EAEAEA
+*/
+
+/*TABLA*/
+
+
+#tablaProductos {
+    background: #B2D430;
+}
+
+
+
+#tablaProductos thead {
+    font-family: 'Pacifico';
+    font-size: 25px;
+    color: #000;
+    background-color: #EAEAEA;
+}
+
+#tablaProductos tbody {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+#tablaProductos td {
+    color: #000;
+    background: #EAEAEA;
+    border: 3px solid #EAEAEA;
+}
+
+/*TABLA EDIFICIOS*/
+
+
+#tablaEdificios {
+    background: #B2D430;
+}
+
+
+#tablaEdificios thead {
+    font-family: 'Pacifico';
+    font-size: 25px;
+    color: #000;
+    background-color: #EAEAEA;
+}
+
+#tablaEdificios tbody {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+#tablaEdificios td {
+    color: #000;
+    background: #EAEAEA;
+    border: 3px solid #EAEAEA;
+}
+
+    
+
+
+

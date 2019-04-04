@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <meta charset="utf-8">
+    <title>jQuery Ajax</title>
+    <script>
+
+
+        //let atras = document.getElementById("atras");
+        //atras.addEventListener("click", event => irAtras());
+
+        function irAtras() {
+            location.href = "index.html";
+        }
+        function testAjax(){
+
+            $.ajax({
+                url: 'https://dev.datos.ua.es/uapi/zHyZB6b7ectmkzMjDB9h/datasets/38/data',
+                type: 'GET',
+                dataType: "jsonp",
+                success: function (data) {
+
+                    let contenidoTabla = $('#tablaProductos tbody');
+
+                    /*for (var i = 0; i < data.length; i++) {
+                        contenidoTabla.append("<tr> <td>" + data[i]["PRODUCTO"] + "</td> <td>" + data[i]["PRECIO (€)/PREU (€)"] + "</td> <td>" + data[i]["CATEGORÍA"] + "</td> </tr>")
+
+                    }*/
+                    
+                    data.forEach(producto => {
+                        if (producto["PRODUCTO"].trim() != "" && producto["PRECIO (€)/PREU (€)"].trim() != "" && producto["CATEGORÍA"].trim() != "") {
+                            contenidoTabla.append("<tr class='filaProducto'> <td>" + producto["PRODUCTO"] + "</td> <td>" + producto["PRECIO (€)/PREU (€)"] + "</td> <td>" + producto["CATEGORÍA"] + "</td> </tr>")
+                        }
+                        });
+                    
+                },
+                error: function (jqXHR, textStatus, error) {
+                    alert("error: " + jqXHR.responseText);
+
+                }
+            });
+        }
+                     
+    </script>
+</head> 
+<body onload="testAjax();">
+
+    <header>
+        <h1 class="ribbon">
+            <strong class="ribbon-content">Precios</strong>
+        </h1>
+    </header>
+
+
+    <div >
+        <table id="tablaProductos" class="centrado">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <button onclick="irAtras()">Atrás</button>
+</body>
+</html>

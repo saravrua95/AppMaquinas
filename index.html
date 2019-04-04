@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- API KEY: zHyZB6b7ectmkzMjDB9h -->
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script src="https:\\maps.googleapis.com/maps/api/js?key=AIzaSyDE4JMU5gBPIEAjmFbTMX_qWyc0louiOk4&callback=initMap" async defer></script>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="initial-scale=1.0"/>
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>Mapa Simple</title>
+
+    </head>
+    <body>
+        <header>
+            <h1 class="ribbon">
+                <strong class="ribbon-content">InfoVending</strong>
+            </h1>
+        </header>
+
+        <div id="titulo" class="centrado">
+            <h2>Información sobre las máquinas de la UA</h2>
+        </div>
+
+        <div class="centrado" id="botones">
+            <button id="preciosBebidas">Muestra Precios de Bebidas</button>
+            <br />
+            <button id="tablaMaquinas">Ubicación Máquinas Vending</button>
+            <br />
+            <button id="ubicacionMaquinas">Muestra Ubicacion Maquinas</button>
+            <br />
+            <button id="creditos" >Créditos</button>
+
+            <button style ="display: none;" id="botonAtrasCreditos">Atrás</button>
+            <button style ="display: none;" id="botonAtrasBebidas">Atrás</button>
+        </div>
+        
+        <div id="map"></div>
+       
+    </body>
+</html>
